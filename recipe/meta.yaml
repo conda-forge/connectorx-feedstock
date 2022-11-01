@@ -1,5 +1,5 @@
 {% set name = "connectorx" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://github.com/sfu-db/connector-x/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: c8d13ac38d9da5793f8ccb0c3777761bcfaa89f0f18cbf0597d0bd4f347612c9
+    sha256: a44a6b15ba1793ac5c7fb92575f216aed5c85fe52e22c90132da91b49ce9c842
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37 or win]
 
 requirements:
@@ -49,10 +49,10 @@ about:
   license_file:
     - LICENSE
     - THIRDPARTY.yml
-  summary: "Fastest library to load data from DB to DataFrames in Rust and Python"
+  summary: Fastest library to load data from DB to DataFrames in Rust and Python
   dev_url: https://github.com/sfu-db/connector-x
 
 extra:
   recipe-maintainers:
     - timkpaine
-    - wangxiaoying 
+    - wangxiaoying
