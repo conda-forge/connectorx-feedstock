@@ -1,6 +1,7 @@
 @echo on
 
 set "PYO3_PYTHON=%PYTHON%"
+set OPENSSL_NO_VENDOR=1
 
 cp %SRC_DIR%\README.md %SRC_DIR%\connectorx-python\README.md
 cp %SRC_DIR%\LICENSE %SRC_DIR%\connectorx-python\LICENSE
