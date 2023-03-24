@@ -236,4 +236,5 @@ Feedstock Maintainers
 
 * [@timkpaine](https://github.com/timkpaine/)
 * [@wangxiaoying](https://github.com/wangxiaoying/)
+* [@xhochy](https://github.com/xhochy/)
 
