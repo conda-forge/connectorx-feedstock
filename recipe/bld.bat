@@ -8,7 +8,8 @@ cp %SRC_DIR%\README.md %SRC_DIR%\connectorx-python\README.md
 cp %SRC_DIR%\LICENSE %SRC_DIR%\connectorx-python\LICENSE
 
 set "CMAKE_GENERATOR=NMake Makefiles"
-%PYTHON% -m pip install --ignore-installed --no-deps -vv connectorx-python
+cd connectorx-python
+%PYTHON% -m pip install --ignore-installed --no-deps -vv .
 @rem maturin build --no-sdist --release --strip --manylinux off --interpreter=%PYTHON% -m connectorx-python/Cargo.toml
 if errorlevel 1 exit 1
 
