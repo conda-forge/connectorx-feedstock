@@ -25,11 +25,14 @@ requirements:
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
+    - libclang   # [unix]
+    - clangdev   # [linux]
   host:
     - python
     - pip
     - poetry
     - maturin >=1.0,<2.0
+    - krb5
     - openssl
     - zlib
   run:
