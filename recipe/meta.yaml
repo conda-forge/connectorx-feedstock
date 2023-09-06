@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<37 or (osx and py>39 and arm64)]
+  skip: true  # [py<37]
 
 requirements:
   build:
@@ -25,14 +25,12 @@ requirements:
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
-    - libclang   # [unix]
-    - clangdev   # [unix]
   host:
     - python
     - pip
     - poetry
     - maturin >=1.0,<2.0
-    - krb5
+    - krb5                                # [linux]
     - openssl
     - zlib
   run:
