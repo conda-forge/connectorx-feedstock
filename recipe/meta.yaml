@@ -25,6 +25,8 @@ requirements:
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
+    - libclang                            # [unix]
+    - clangdev                            # [unix]
   host:
     - python
     - pip
