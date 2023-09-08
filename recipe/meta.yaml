@@ -1,5 +1,5 @@
 {% set name = "connectorx" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3a1" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
 
 build:
   number: 2
-  skip: true  # [py<37 or (osx and arm64 and py == 310)]
+  skip: true  # [py<37]
 
 requirements:
   build:
