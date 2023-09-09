@@ -2,3 +2,5 @@ channel_sources:
  - conda-forge/label/rust_dev,conda-forge
 MACOSX_SDK_VERSION:        # [osx and x86_64]
   - "10.15"                # [osx and x86_64]
+channel_targets:
+  - conda-forge connectorx_rc
