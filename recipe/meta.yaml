@@ -10,8 +10,8 @@ source:
     sha256: 74f87953cd64941923ec0ccad533e5011961bd4fa23ea37dfd408ffc2418a652
 
 build:
-  number: 2
-  skip: true  # [py<37 or (osx and arm64 and py == 310)]
+  number: 3
+  skip: true  # [py<37 or (osx and arm64 and py>39)]
 
 requirements:
   build:
