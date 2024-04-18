@@ -20,7 +20,7 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.0,<2.0                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ compiler('rust') }}
+    - {{ compiler('rust') }} 1.77
     - posix                               # [win]
     - cmake
     - make                                # [unix]
