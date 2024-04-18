@@ -1,5 +1,7 @@
 c_compiler:
 - vs2019
+c_stdlib:
+- vs
 channel_sources:
 - conda-forge/label/rust_dev,conda-forge
 channel_targets:
@@ -16,8 +18,5 @@ rust_compiler:
 - rust
 target_platform:
 - win-64
-zip_keys:
-- - python
-  - channel_sources
 zlib:
 - '1.2'
