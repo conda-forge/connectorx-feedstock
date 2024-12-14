@@ -17,6 +17,9 @@ jobs:
       win_64_python3.12.____cpython:
         CONFIG: win_64_python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
+      win_64_python3.13.____cp313:
+        CONFIG: win_64_python3.13.____cp313
+        UPLOAD_PACKAGES: 'True'
   timeoutInMinutes: 360
   variables:
     CONDA_BLD_PATH: D:\\bld\\
@@ -30,6 +33,7 @@ jobs:
       displayName: Run Windows build
       env:
         MINIFORGE_HOME: $(MINIFORGE_HOME)
+        CONDA_BLD_PATH: $(CONDA_BLD_PATH)
         PYTHONUNBUFFERED: 1
         CONFIG: $(CONFIG)
         CI: azure
