@@ -10,7 +10,7 @@ source:
     sha256: dd6d6a4a1354a46405b16975f654304ed9657b61a372cd21bf24e508f0d6cb7d
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -19,11 +19,12 @@ requirements:
     - crossenv                            # [build_platform != target_platform]
     - maturin >=1.0,<2.0                  # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ compiler('rust') }}
+    - {{ compiler('rust') }} <=1.77
     - posix                               # [win]
     - cmake
     - make                                # [unix]
     - cargo-bundle-licenses
+    - cargo-feature
     - libclang                            # [unix]
     - clangdev                            # [unix]
   host:
