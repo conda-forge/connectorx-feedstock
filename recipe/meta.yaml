@@ -1,5 +1,5 @@
 {% set name = "connectorx" %}
-{% set version = "0.4.2" %}
+{% set version = "0.4.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/sfu-db/connector-x/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 414f97f05fef54c80c98bfb2e41d76a4adfd08c6279931a1b59557de98322cd4
+    sha256: 49be5c5757f2cc0df2d42eb306b6222611f4a24ba26a9736a9285306f8c1e7d3
 
 build:
   number: 0
