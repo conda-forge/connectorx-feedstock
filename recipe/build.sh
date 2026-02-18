@@ -2,7 +2,11 @@
 
 set -ex
 
-export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
+if [[ "${target_platform}" == osx-* ]]; then
+  export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS -isysroot ${CONDA_BUILD_SYSROOT}"
+else
+  export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
+fi
 export LIBCLANG_PATH=$BUILD_PREFIX/lib/libclang${SHLIB_EXT}
 
 if [[ "${target_platform}" == linux-* ]]; then
