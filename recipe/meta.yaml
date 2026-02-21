@@ -28,9 +28,11 @@ requirements:
     - cargo-bundle-licenses
     - libclang                            # [unix]
     - clangdev                            # [unix]
+    - sed
   host:
     - python
     - pip
+    - python-installer
     - poetry
     - maturin >=1.0,<2.0
     - krb5                                # [linux]

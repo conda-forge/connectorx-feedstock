@@ -12,7 +12,7 @@ if [[ "${target_platform}" == osx-* ]]; then
   cargo fetch --manifest-path connectorx-python/Cargo.toml
   _CARGO_REGISTRY="${CARGO_HOME:-${BUILD_PREFIX}/.cargo}/registry/src"
   find "${_CARGO_REGISTRY}" -path "*/libgssapi-sys-*/build.rs" \
-    -exec sed -i '' "s|-F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks|-F${CONDA_BUILD_SYSROOT}/System/Library/Frameworks|g" {} +
+    -exec sed -i.bak "s|-F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks|-F${CONDA_BUILD_SYSROOT}/System/Library/Frameworks|g" {} +
 else
   export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
 fi
@@ -29,6 +29,7 @@ fi
 
 maturin build --release --strip --manylinux off --interpreter="${PYTHON}" -m connectorx-python/Cargo.toml
 
-"${PYTHON}" -m pip install $SRC_DIR/connectorx-python/target/wheels/*.whl --no-deps -vv
+_WHEEL_FILE=("${SRC_DIR}"/connectorx-python/target/wheels/*.whl)
+"${PYTHON}" -m installer --prefix "${PREFIX}" "${_WHEEL_FILE[0]}"
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml 
