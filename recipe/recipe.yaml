@@ -1,0 +1,73 @@
+schema_version: 1
+
+context:
+  name: connectorx
+  version: 0.4.4
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  - url: https://github.com/sfu-db/connector-x/archive/refs/tags/v${{ version }}.tar.gz
+    sha256: 882ba3e5bdf46c0719e3682b14a60af3ee1ba80b6f2843408cd0d760a41860f9
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+    - if: build_platform != target_platform
+      then: crossenv
+    - if: build_platform != target_platform
+      then: maturin >=1.0,<2.0
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('rust') }}
+    - if: win
+      then: posix
+    - cmake
+    - if: unix
+      then: make
+    - cargo-bundle-licenses
+    - if: unix
+      then: libclang
+    - if: unix
+      then: clangdev
+  host:
+    - python
+    - pip
+    - poetry
+    - maturin >=1.0,<2.0
+    - if: linux
+      then: krb5
+    - openssl
+    - zlib
+  run:
+    - python
+    - numpy >=1.21.5
+
+tests:
+  - python:
+      imports:
+        - connectorx
+
+about:
+  license: MIT
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  summary: Fastest library to load data from DB to DataFrames in Rust and Python
+  homepage: https://github.com/sfu-db/connector-x
+  repository: https://github.com/sfu-db/connector-x
+
+extra:
+  recipe-maintainers:
+    - '0xbe7a'
+    - timkpaine
+    - wangxiaoying
+    - xhochy
