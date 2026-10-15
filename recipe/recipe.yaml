@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: connectorx
-  version: "0.4.5"
+  version: "0.4.6"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/sfu-db/connector-x/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: 619e8ff23f75a60604681a80cef94ed8d2458e4c235c7ad0d041a202ade2bd56
+    sha256: 21e1cddf42a8834911a6b92a39c5080abaec3db0519a96e0dffa50497334a2ce
 
 build:
   number: 1
@@ -18,13 +18,11 @@ build:
 requirements:
   build:
     - if: build_platform != target_platform
-      then: python
-    - if: build_platform != target_platform
-      then: cross-python_${{ target_platform }}
-    - if: build_platform != target_platform
-      then: crossenv
-    - if: build_platform != target_platform
-      then: maturin >=1.0,<2.0
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - crossenv
+        - maturin >=1.0,<2.0
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('rust') }} <1.97
@@ -35,13 +33,12 @@ requirements:
       then: make
     - cargo-bundle-licenses
     - if: unix
-      then: libclang
-    - if: unix
-      then: clangdev
+      then:
+        - libclang
+        - clangdev
   host:
     - python
     - pip
-    - poetry
     - maturin >=1.0,<2.0
     - if: linux
       then: krb5
@@ -49,7 +46,7 @@ requirements:
     - zlib
   run:
     - python
-    - numpy >=1.21.5
+    - numpy >=2.3
 
 tests:
   - python:
