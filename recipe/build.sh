@@ -14,7 +14,7 @@ export BINDGEN_EXTRA_CLANG_ARGS="$CFLAGS"
 export LIBCLANG_PATH=$BUILD_PREFIX/lib/libclang${SHLIB_EXT}
 
 if [[ "${target_platform}" == osx-* ]]; then
-  sed -i.bak 's/, "integrated-auth-gssapi"//' connectorx/Cargo.toml
+  sed -i.bak '/"integrated-auth-gssapi",/d' connectorx/Cargo.toml
   rm connectorx/Cargo.toml.bak
   export SDKROOT="${CONDA_BUILD_SYSROOT}"
   export BINDGEN_EXTRA_CLANG_ARGS="${BINDGEN_EXTRA_CLANG_ARGS} -isysroot ${CONDA_BUILD_SYSROOT} -mmacosx-version-min=${MACOSX_DEPLOYMENT_TARGET} -F${CONDA_BUILD_SYSROOT}/System/Library/Frameworks"

@@ -21,13 +21,10 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.14.* *_cp314
 rust_compiler:
 - rust
 target_platform:
 - linux-ppc64le
-zip_keys:
-- - python
-  - channel_sources
 zlib:
 - '1'
